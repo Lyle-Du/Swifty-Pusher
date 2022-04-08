@@ -127,8 +127,6 @@ final class ViewModel: ObservableObject {
             selectedAPNSPushType = .alert
         }
         
-        p8Payload = P8Parser.parse(url: keyURL)
-        updateIndicatorColor()
         loadPayload()
         
         self.panel.allowsMultipleSelection = false
