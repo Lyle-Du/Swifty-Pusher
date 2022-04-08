@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		3E37C4B827FE221200253CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E37C4B727FE221200253CA4 /* Assets.xcassets */; };
 		3E37C4BB27FE221200253CA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E37C4BA27FE221200253CA4 /* Preview Assets.xcassets */; };
-		3E37C4C627FE221200253CA4 /* Swifty_PusherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4C527FE221200253CA4 /* Swifty_PusherTests.swift */; };
+		3E37C4C627FE221200253CA4 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4C527FE221200253CA4 /* ViewModelTests.swift */; };
 		3E37C4D027FE221200253CA4 /* Swifty_PusherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4CF27FE221200253CA4 /* Swifty_PusherUITests.swift */; };
 		3E37C4D227FE221200253CA4 /* Swifty_PusherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4D127FE221200253CA4 /* Swifty_PusherUITestsLaunchTests.swift */; };
 		3EA4720427FF5187007E9E7B /* OpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4720327FF5187007E9E7B /* OpenPanel.swift */; };
+		3EA4720627FF5330007E9E7B /* MockOpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4720527FF5330007E9E7B /* MockOpenPanel.swift */; };
+		3EA4720827FF578A007E9E7B /* test.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4720727FF578A007E9E7B /* test.p8 */; };
+		3EA4720B27FF62BE007E9E7B /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3EA4720A27FF62BE007E9E7B /* OHHTTPStubsSwift */; };
 		3EB3439927FE227B006A45FB /* Swifty_PusherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3438F27FE227B006A45FB /* Swifty_PusherApp.swift */; };
 		3EB3439A27FE227B006A45FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439027FE227B006A45FB /* ContentView.swift */; };
 		3EB3439B27FE227B006A45FB /* APNSPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439127FE227B006A45FB /* APNSPriority.swift */; };
@@ -48,11 +51,13 @@
 		3E37C4BA27FE221200253CA4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3E37C4BC27FE221200253CA4 /* Swifty_Pusher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swifty_Pusher.entitlements; sourceTree = "<group>"; };
 		3E37C4C127FE221200253CA4 /* Swifty PusherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swifty PusherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E37C4C527FE221200253CA4 /* Swifty_PusherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty_PusherTests.swift; sourceTree = "<group>"; };
+		3E37C4C527FE221200253CA4 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		3E37C4CB27FE221200253CA4 /* Swifty PusherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swifty PusherUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E37C4CF27FE221200253CA4 /* Swifty_PusherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty_PusherUITests.swift; sourceTree = "<group>"; };
 		3E37C4D127FE221200253CA4 /* Swifty_PusherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty_PusherUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3EA4720327FF5187007E9E7B /* OpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPanel.swift; sourceTree = "<group>"; };
+		3EA4720527FF5330007E9E7B /* MockOpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOpenPanel.swift; sourceTree = "<group>"; };
+		3EA4720727FF578A007E9E7B /* test.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.p8; sourceTree = "<group>"; };
 		3EB3438F27FE227B006A45FB /* Swifty_PusherApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty_PusherApp.swift; sourceTree = "<group>"; };
 		3EB3439027FE227B006A45FB /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EB3439127FE227B006A45FB /* APNSPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNSPriority.swift; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EA4720B27FF62BE007E9E7B /* OHHTTPStubsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +164,9 @@
 		3E37C4C427FE221200253CA4 /* Swifty PusherTests */ = {
 			isa = PBXGroup;
 			children = (
-				3E37C4C527FE221200253CA4 /* Swifty_PusherTests.swift */,
+				3EA4720727FF578A007E9E7B /* test.p8 */,
+				3E37C4C527FE221200253CA4 /* ViewModelTests.swift */,
+				3EA4720527FF5330007E9E7B /* MockOpenPanel.swift */,
 			);
 			path = "Swifty PusherTests";
 			sourceTree = "<group>";
@@ -188,6 +196,9 @@
 			dependencies = (
 			);
 			name = "Swifty Pusher";
+			packageProductDependencies = (
+				3EA4720A27FF62BE007E9E7B /* OHHTTPStubsSwift */,
+			);
 			productName = "Swifty Pusher";
 			productReference = 3E37C4B027FE221200253CA4 /* Swifty Pusher.app */;
 			productType = "com.apple.product-type.application";
@@ -203,6 +214,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3EA4720D27FF6340007E9E7B /* PBXTargetDependency */,
 				3E37C4C327FE221200253CA4 /* PBXTargetDependency */,
 			);
 			name = "Swifty PusherTests";
@@ -260,6 +272,9 @@
 				Base,
 			);
 			mainGroup = 3E37C4A727FE221200253CA4;
+			packageReferences = (
+				3EA4720927FF62BE007E9E7B /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+			);
 			productRefGroup = 3E37C4B127FE221200253CA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -285,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EA4720827FF578A007E9E7B /* test.p8 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E37C4C627FE221200253CA4 /* Swifty_PusherTests.swift in Sources */,
+				3EA4720627FF5330007E9E7B /* MockOpenPanel.swift in Sources */,
+				3E37C4C627FE221200253CA4 /* ViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +362,10 @@
 			isa = PBXTargetDependency;
 			target = 3E37C4AF27FE221200253CA4 /* Swifty Pusher */;
 			targetProxy = 3E37C4CC27FE221200253CA4 /* PBXContainerItemProxy */;
+		};
+		3EA4720D27FF6340007E9E7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 3EA4720C27FF6340007E9E7B /* OHHTTPStubsSwift */;
 		};
 /* End PBXTargetDependency section */
 
@@ -628,6 +649,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3EA4720927FF62BE007E9E7B /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3EA4720A27FF62BE007E9E7B /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EA4720927FF62BE007E9E7B /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+		3EA4720C27FF6340007E9E7B /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EA4720927FF62BE007E9E7B /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3E37C4A827FE221200253CA4 /* Project object */;
 }
