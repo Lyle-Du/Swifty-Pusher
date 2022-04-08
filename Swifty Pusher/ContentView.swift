@@ -14,12 +14,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Form {
-                TextField(viewModel.teamIDTitle, text: $viewModel.teamID, prompt: Text(viewModel.teamIDHint))
                 
-                TextField(viewModel.bundleIDTitle, text: $viewModel.bundleID, prompt: Text(viewModel.bundleIDHint))
+                makeTextField(viewModel.teamIDTitle, $viewModel.teamID, viewModel.teamIDHint)
+                makeTextField(viewModel.bundleIDTitle, $viewModel.bundleID, viewModel.bundleIDHint)
                 
                 HStack {
-                    TextField(viewModel.keyIDTitle, text: $viewModel.keyID, prompt: Text(viewModel.keyIDHint))
+                    makeTextField(viewModel.keyIDTitle, $viewModel.keyID, viewModel.keyIDHint)
                     Button(action: { viewModel.loadKey() }) {
                         HStack {
                             Text(viewModel.indicator).foregroundColor(viewModel.importKeyButtonIndicatorColor)
@@ -28,7 +28,7 @@ struct ContentView: View {
                     }
                 }
                 
-                TextField(viewModel.deviceTokenTitle, text: $viewModel.deviceToken, prompt: Text(viewModel.deviceTokenHint))
+                makeTextField(viewModel.deviceTokenTitle, $viewModel.deviceToken, viewModel.deviceTokenHint)
                 
                 Picker(viewModel.apnsTitle, selection: $viewModel.selectedAPNServer) {
                     ForEach(ApplePushNotificationServer.allCases, id: \.self) {
@@ -90,6 +90,25 @@ struct ContentView: View {
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification), perform: { _ in
             NSApp.mainWindow?.standardWindowButton(.zoomButton)?.isHidden = true
         })
+    }
+}
+
+private extension ContentView {
+    
+    func makeTextField(_ title: String, _ text: Binding<String>, _ prompt: String) -> some View {
+        guard #available(macOS 12.0, *) else {
+            return AnyView(ZStack {
+                if text.wrappedValue.isEmpty {
+                    Text(prompt)
+                        .frame(minWidth: .zero, maxWidth: .infinity ,alignment: .trailing)
+                        .font(.system(size: 10))
+                        .padding(.trailing, 8)
+                        .foregroundColor(.gray)
+                }
+                TextField(title, text: text)
+            })
+        }
+        return AnyView(TextField(title, text: text, prompt: Text(prompt)))
     }
 }
 
