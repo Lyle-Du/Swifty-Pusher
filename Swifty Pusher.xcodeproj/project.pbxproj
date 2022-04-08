@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E37C4B427FE221200253CA4 /* Swifty_PusherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4B327FE221200253CA4 /* Swifty_PusherApp.swift */; };
-		3E37C4B627FE221200253CA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4B527FE221200253CA4 /* ContentView.swift */; };
 		3E37C4B827FE221200253CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E37C4B727FE221200253CA4 /* Assets.xcassets */; };
 		3E37C4BB27FE221200253CA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E37C4BA27FE221200253CA4 /* Preview Assets.xcassets */; };
 		3E37C4C627FE221200253CA4 /* Swifty_PusherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4C527FE221200253CA4 /* Swifty_PusherTests.swift */; };
 		3E37C4D027FE221200253CA4 /* Swifty_PusherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4CF27FE221200253CA4 /* Swifty_PusherUITests.swift */; };
 		3E37C4D227FE221200253CA4 /* Swifty_PusherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4D127FE221200253CA4 /* Swifty_PusherUITestsLaunchTests.swift */; };
+		3EA4720427FF5187007E9E7B /* OpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4720327FF5187007E9E7B /* OpenPanel.swift */; };
+		3EB3439927FE227B006A45FB /* Swifty_PusherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3438F27FE227B006A45FB /* Swifty_PusherApp.swift */; };
+		3EB3439A27FE227B006A45FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439027FE227B006A45FB /* ContentView.swift */; };
+		3EB3439B27FE227B006A45FB /* APNSPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439127FE227B006A45FB /* APNSPriority.swift */; };
+		3EB3439C27FE227B006A45FB /* ApplePushNotificationServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439227FE227B006A45FB /* ApplePushNotificationServer.swift */; };
+		3EB3439D27FE227B006A45FB /* EllipticCurveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439327FE227B006A45FB /* EllipticCurveKey.swift */; };
+		3EB3439E27FE227B006A45FB /* Data+Base64EncodedURLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439427FE227B006A45FB /* Data+Base64EncodedURLString.swift */; };
+		3EB3439F27FE227B006A45FB /* APNSPushType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439527FE227B006A45FB /* APNSPushType.swift */; };
+		3EB343A027FE227B006A45FB /* JSONWebToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439627FE227B006A45FB /* JSONWebToken.swift */; };
+		3EB343A127FE227B006A45FB /* P8Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439727FE227B006A45FB /* P8Parser.swift */; };
+		3EB343A227FE227B006A45FB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3439827FE227B006A45FB /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +44,6 @@
 
 /* Begin PBXFileReference section */
 		3E37C4B027FE221200253CA4 /* Swifty Pusher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty Pusher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E37C4B327FE221200253CA4 /* Swifty_PusherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty_PusherApp.swift; sourceTree = "<group>"; };
-		3E37C4B527FE221200253CA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3E37C4B727FE221200253CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E37C4BA27FE221200253CA4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3E37C4BC27FE221200253CA4 /* Swifty_Pusher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swifty_Pusher.entitlements; sourceTree = "<group>"; };
@@ -45,6 +52,17 @@
 		3E37C4CB27FE221200253CA4 /* Swifty PusherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swifty PusherUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E37C4CF27FE221200253CA4 /* Swifty_PusherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty_PusherUITests.swift; sourceTree = "<group>"; };
 		3E37C4D127FE221200253CA4 /* Swifty_PusherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty_PusherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3EA4720327FF5187007E9E7B /* OpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPanel.swift; sourceTree = "<group>"; };
+		3EB3438F27FE227B006A45FB /* Swifty_PusherApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swifty_PusherApp.swift; sourceTree = "<group>"; };
+		3EB3439027FE227B006A45FB /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3EB3439127FE227B006A45FB /* APNSPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNSPriority.swift; sourceTree = "<group>"; };
+		3EB3439227FE227B006A45FB /* ApplePushNotificationServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplePushNotificationServer.swift; sourceTree = "<group>"; };
+		3EB3439327FE227B006A45FB /* EllipticCurveKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipticCurveKey.swift; sourceTree = "<group>"; };
+		3EB3439427FE227B006A45FB /* Data+Base64EncodedURLString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Base64EncodedURLString.swift"; sourceTree = "<group>"; };
+		3EB3439527FE227B006A45FB /* APNSPushType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNSPushType.swift; sourceTree = "<group>"; };
+		3EB3439627FE227B006A45FB /* JSONWebToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWebToken.swift; sourceTree = "<group>"; };
+		3EB3439727FE227B006A45FB /* P8Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P8Parser.swift; sourceTree = "<group>"; };
+		3EB3439827FE227B006A45FB /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +90,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E12F6A427FE8AF40060A828 /* APNS */ = {
+			isa = PBXGroup;
+			children = (
+				3EB3439227FE227B006A45FB /* ApplePushNotificationServer.swift */,
+				3EB3439127FE227B006A45FB /* APNSPriority.swift */,
+				3EB3439527FE227B006A45FB /* APNSPushType.swift */,
+			);
+			path = APNS;
+			sourceTree = "<group>";
+		};
+		3E12F6A527FE8B0C0060A828 /* JSONWebToken */ = {
+			isa = PBXGroup;
+			children = (
+				3EB3439427FE227B006A45FB /* Data+Base64EncodedURLString.swift */,
+				3EB3439327FE227B006A45FB /* EllipticCurveKey.swift */,
+				3EB3439627FE227B006A45FB /* JSONWebToken.swift */,
+				3EB3439727FE227B006A45FB /* P8Parser.swift */,
+			);
+			path = JSONWebToken;
+			sourceTree = "<group>";
+		};
 		3E37C4A727FE221200253CA4 = {
 			isa = PBXGroup;
 			children = (
@@ -95,11 +134,15 @@
 		3E37C4B227FE221200253CA4 /* Swifty Pusher */ = {
 			isa = PBXGroup;
 			children = (
-				3E37C4B327FE221200253CA4 /* Swifty_PusherApp.swift */,
-				3E37C4B527FE221200253CA4 /* ContentView.swift */,
+				3E12F6A527FE8B0C0060A828 /* JSONWebToken */,
+				3E12F6A427FE8AF40060A828 /* APNS */,
+				3EB3439027FE227B006A45FB /* ContentView.swift */,
+				3EB3438F27FE227B006A45FB /* Swifty_PusherApp.swift */,
+				3EB3439827FE227B006A45FB /* ViewModel.swift */,
 				3E37C4B727FE221200253CA4 /* Assets.xcassets */,
 				3E37C4BC27FE221200253CA4 /* Swifty_Pusher.entitlements */,
 				3E37C4B927FE221200253CA4 /* Preview Content */,
+				3EA4720327FF5187007E9E7B /* OpenPanel.swift */,
 			);
 			path = "Swifty Pusher";
 			sourceTree = "<group>";
@@ -259,8 +302,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E37C4B627FE221200253CA4 /* ContentView.swift in Sources */,
-				3E37C4B427FE221200253CA4 /* Swifty_PusherApp.swift in Sources */,
+				3EB3439C27FE227B006A45FB /* ApplePushNotificationServer.swift in Sources */,
+				3EB3439F27FE227B006A45FB /* APNSPushType.swift in Sources */,
+				3EB3439B27FE227B006A45FB /* APNSPriority.swift in Sources */,
+				3EB3439927FE227B006A45FB /* Swifty_PusherApp.swift in Sources */,
+				3EB3439D27FE227B006A45FB /* EllipticCurveKey.swift in Sources */,
+				3EB343A127FE227B006A45FB /* P8Parser.swift in Sources */,
+				3EB343A027FE227B006A45FB /* JSONWebToken.swift in Sources */,
+				3EA4720427FF5187007E9E7B /* OpenPanel.swift in Sources */,
+				3EB3439A27FE227B006A45FB /* ContentView.swift in Sources */,
+				3EB3439E27FE227B006A45FB /* Data+Base64EncodedURLString.swift in Sources */,
+				3EB343A227FE227B006A45FB /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

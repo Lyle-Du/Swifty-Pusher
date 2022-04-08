@@ -8,14 +8,96 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var viewModel = ViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Form {
+                TextField(viewModel.teamIDTitle, text: $viewModel.teamID, prompt: Text(viewModel.teamIDHint))
+                
+                TextField(viewModel.bundleIDTitle, text: $viewModel.bundleID, prompt: Text(viewModel.bundleIDHint))
+                
+                HStack {
+                    TextField(viewModel.keyIDTitle, text: $viewModel.keyID, prompt: Text(viewModel.keyIDHint))
+                    Button(action: { viewModel.loadKey() }) {
+                        HStack {
+                            Text(viewModel.indicator).foregroundColor(viewModel.importKeyButtonIndicatorColor)
+                            Text(viewModel.importKeyButtonTitle)
+                        }
+                    }
+                }
+                
+                TextField(viewModel.deviceTokenTitle, text: $viewModel.deviceToken, prompt: Text(viewModel.deviceTokenHint))
+                
+                Picker(viewModel.apnsTitle, selection: $viewModel.selectedAPNServer) {
+                    ForEach(ApplePushNotificationServer.allCases, id: \.self) {
+                        Text($0.title)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                
+                Picker(viewModel.apnsPriorityTitle, selection: $viewModel.selectedAPNSPriority) {
+                    ForEach(APNSPriority.allCases, id: \.self) {
+                        Text($0.title)
+                    }
+                }
+                .pickerStyle(RadioGroupPickerStyle())
+                
+                HStack {
+                    Picker(viewModel.apnsPushTypeTitle, selection: $viewModel.selectedAPNSPushType) {
+                        ForEach(APNSPushType.allCases, id: \.self) {
+                            Text($0.title)
+                        }
+                    }
+                    
+                    Button(viewModel.pushTypeTemplateButtonTitle) {
+                        viewModel.loadPayload()
+                    }
+                }
+            }
+            
+            Divider()
+            
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(viewModel.payloadTitle).frame(alignment: .leading)
+                    Spacer()
+                    Button(action: { viewModel.push() }) {
+                        HStack{
+                            Text(viewModel.indicator)
+                                .foregroundColor(viewModel.notificationIndicatorColor)
+                            Text(viewModel.pushButtonTitle)
+                        }
+                    }
+                }
+                ZStack(alignment: .topLeading) {
+                    TextEditor(text: $viewModel.payload)
+                }
+            }
+            
+            Divider()
+            
+            ScrollView(.vertical) {
+                Text(viewModel.debugMessage)
+                .font(.footnote)
+                .frame(minWidth: .zero, maxWidth: .infinity, minHeight: .zero, maxHeight: .infinity, alignment: .topLeading)
+            }
+            .frame(maxHeight: 100, alignment: .topLeading)
+        }
+        .frame(width: 400, height: 600, alignment: .top)
+        .padding()
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification), perform: { _ in
+            NSApp.mainWindow?.standardWindowButton(.zoomButton)?.isHidden = true
+        })
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+extension NSTextView {
+  open override var frame: CGRect {
+    didSet {
+      backgroundColor = .clear
+      drawsBackground = true
     }
+  }
 }
