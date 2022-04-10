@@ -11,10 +11,13 @@ struct ContentView: View {
     
     @ObservedObject var viewModel = ViewModel()
     
+    private let titleWidth = CGFloat(100)
+    private let titleAlignment = Alignment.trailing
+    
     var body: some View {
-        VStack {
-            Form {
-                
+        VStack(alignment: .leading) {
+            
+            Group {
                 makeTextField(viewModel.teamIDTitle, $viewModel.teamID, viewModel.teamIDHint)
                 makeTextField(viewModel.bundleIDTitle, $viewModel.bundleID, viewModel.bundleIDHint)
                 
@@ -30,29 +33,33 @@ struct ContentView: View {
                 
                 makeTextField(viewModel.deviceTokenTitle, $viewModel.deviceToken, viewModel.deviceTokenHint)
                 
-                Picker(viewModel.apnsTitle, selection: $viewModel.selectedAPNServer) {
-                    ForEach(ApplePushNotificationServer.allCases, id: \.self) {
-                        Text($0.title)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
+                Divider()
                 
-                Picker(viewModel.apnsPriorityTitle, selection: $viewModel.selectedAPNSPriority) {
-                    ForEach(APNSPriority.allCases, id: \.self) {
-                        Text($0.title)
-                    }
-                }
-                .pickerStyle(RadioGroupPickerStyle())
-                
-                HStack {
-                    Picker(viewModel.apnsPushTypeTitle, selection: $viewModel.selectedAPNSPushType) {
-                        ForEach(APNSPushType.allCases, id: \.self) {
+                Form {
+                    Picker(viewModel.apnsTitle, selection: $viewModel.selectedAPNServer) {
+                        ForEach(ApplePushNotificationServer.allCases, id: \.self) {
                             Text($0.title)
                         }
                     }
+                    .pickerStyle(SegmentedPickerStyle())
                     
-                    Button(viewModel.pushTypeTemplateButtonTitle) {
-                        viewModel.loadPayload()
+                    Picker(viewModel.apnsPriorityTitle, selection: $viewModel.selectedAPNSPriority) {
+                        ForEach(APNSPriority.allCases, id: \.self) {
+                            Text($0.title)
+                        }
+                    }
+                    .pickerStyle(RadioGroupPickerStyle())
+                    
+                    HStack {
+                        Picker(viewModel.apnsPushTypeTitle, selection: $viewModel.selectedAPNSPushType) {
+                            ForEach(APNSPushType.allCases, id: \.self) {
+                                Text($0.title)
+                            }
+                        }
+                        
+                        Button(viewModel.pushTypeTemplateButtonTitle) {
+                            viewModel.loadPayload()
+                        }
                     }
                 }
             }
@@ -71,6 +78,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                
                 ZStack(alignment: .topLeading) {
                     TextEditor(text: $viewModel.payload)
                 }
@@ -78,10 +86,10 @@ struct ContentView: View {
             
             Divider()
             
-            ScrollView(.vertical) {
+            ScrollView {
                 Text(viewModel.debugMessage)
-                .font(.footnote)
-                .frame(minWidth: .zero, maxWidth: .infinity, minHeight: .zero, maxHeight: .infinity, alignment: .topLeading)
+                    .font(.footnote)
+                    .frame(minWidth: .zero, maxWidth: .infinity, minHeight: .zero, maxHeight: .infinity, alignment: .topLeading)
             }
             .frame(maxHeight: 100, alignment: .topLeading)
         }
@@ -96,27 +104,18 @@ struct ContentView: View {
 private extension ContentView {
     
     func makeTextField(_ title: String, _ text: Binding<String>, _ prompt: String) -> some View {
-        guard #available(macOS 12.0, *) else {
-            return AnyView(ZStack {
-                if text.wrappedValue.isEmpty {
-                    Text(prompt)
-                        .frame(minWidth: .zero, maxWidth: .infinity ,alignment: .trailing)
-                        .font(.system(size: 10))
-                        .padding(.trailing, 8)
-                        .foregroundColor(.gray)
-                }
-                TextField(title, text: text)
-            })
+        HStack {
+            Text(title).frame(width: titleWidth, alignment: titleAlignment)
+            TextField(prompt, text: text)
         }
-        return AnyView(TextField(title, text: text, prompt: Text(prompt)))
     }
 }
 
 extension NSTextView {
-  open override var frame: CGRect {
-    didSet {
-      backgroundColor = .clear
-      drawsBackground = true
+    open override var frame: CGRect {
+        didSet {
+            backgroundColor = .clear
+            drawsBackground = true
+        }
     }
-  }
 }
