@@ -14,8 +14,7 @@ Push notifications testing on your device could be a pain. You might consider to
 
 That's why I made this tool to user-friendly with GUI. This tool might be helpful to whom does not prefer command line tools or shell scripts. :)
 
-So, this is inspired by Apple's document sending_push_notifications_using_command-line_tools
-https://developer.apple.com/documentation/usernotifications/sending_push_notifications_using_command-line_tools
+So, this is inspired by Apple's document [sending_push_notifications_using_command-line_tools](https://developer.apple.com/documentation/usernotifications/sending_push_notifications_using_command-line_tools)
 
 # Installation
 
@@ -43,7 +42,7 @@ In addition to that, Apple account team ID, App bundle ID, APNs authentication k
 
 This tool remembers all the text input fields. But it doesn't remember authentication key content. So, with a new launch of it, it needs you to import the key manually.
 
-<img width="300" alt="Screenshot 2022-04-08 at 9 17 46 PM" src="https://user-images.githubusercontent.com/9628305/162443880-1f54a390-c234-46c1-9748-0539b02d64ee.png">
+<img width="300" alt="Screenshot 2022-04-10 at 11 42 53 PM" src="https://user-images.githubusercontent.com/9628305/162628940-b7fb5bd2-c366-4498-8d71-3eb2a7e6e0d5.png"><img width="300" alt="Screenshot 2022-04-10 at 11 43 35 PM" src="https://user-images.githubusercontent.com/9628305/162628944-caf960a0-b16d-4bea-909f-84749f75b9c0.png">
 
 # Donation
 
