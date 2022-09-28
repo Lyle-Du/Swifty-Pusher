@@ -9,25 +9,48 @@ import Foundation
 
 struct JSONWebToken: Codable {
     
+    let token: String
+    
     private let header: Header
     private let claims: Claims
 
-    init(keyID: String, teamID: String, issueDate: Date) {
+    init(
+        keyID: String,
+        teamID: String,
+        issueDate: Date,
+        p8Payload: P8Payload,
+        userDefaults: UserDefaults = .standard) throws
+    {
         header = Header(keyID: keyID)
-        claims = Claims(teamID: teamID, issueDate: Int(issueDate.timeIntervalSince1970.rounded()))
-    }
-
-    func sign(_ payload: P8Payload) throws -> String {
-        let digest = try self.digest()
-        let ellipticCurveKey = try EllipticCurveKey(payload).key
-        let signature = try ellipticCurveKey.es256Sign(digest: digest)
-        return [digest, signature].joined(separator: ".")
+        
+        let requestedDateKey = "\(keyID).\(teamID).requestedDate"
+        let oldDate = userDefaults.integer(forKey: requestedDateKey)
+        let newDate = Int(issueDate.timeIntervalSince1970.rounded())
+        
+        let tokenKey = "\(keyID).\(teamID).tokenKey"
+        
+        let isExpiried = newDate > (oldDate + 30*60)
+        if isExpiried {
+            claims = Claims(teamID: teamID, issueDate: newDate)
+            let digest = try Self.digest(header: header, claims: claims)
+            let ellipticCurveKey = try EllipticCurveKey(p8Payload).key
+            let signature = try ellipticCurveKey.es256Sign(digest: digest)
+            token = [digest, signature].joined(separator: ".")
+            userDefaults.set(newDate, forKey: requestedDateKey)
+            userDefaults.set(token, forKey: tokenKey)
+        } else {
+            claims = Claims(teamID: teamID, issueDate: oldDate)
+            guard let token = userDefaults.string(forKey: tokenKey) else {
+                throw JSONWebTokenError.invalidToken
+            }
+            self.token = token
+        }
     }
 }
 
 private extension JSONWebToken {
     
-    func digest() throws -> String {
+    static func digest(header: Header, claims: Claims) throws -> String {
         let headerString = try JSONEncoder().encode(header.self).base64EncodedURLString()
         let claimsString = try JSONEncoder().encode(claims.self).base64EncodedURLString()
         return [headerString, claimsString].joined(separator: ".")
@@ -60,5 +83,5 @@ private extension JSONWebToken {
 }
 
 enum JSONWebTokenError: Error {
-    case digestDataCorruption, keyNotSupportES256Signing, invalidASN1, invalidP8
+    case digestDataCorruption, keyNotSupportES256Signing, invalidASN1, invalidP8, invalidToken
 }

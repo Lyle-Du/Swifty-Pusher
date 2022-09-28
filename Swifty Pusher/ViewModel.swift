@@ -146,8 +146,8 @@ final class ViewModel: ObservableObject {
         guard let p8Payload = p8Payload else { return }
         
         do {
-            let jsonWebToken = JSONWebToken(keyID: keyID, teamID: teamID, issueDate: Date())
-            let authenticationToken = try jsonWebToken.sign(p8Payload)
+            let jsonWebToken = try JSONWebToken(keyID: keyID, teamID: teamID, issueDate: Date(), p8Payload: p8Payload)
+            let authenticationToken = jsonWebToken.token
             guard let request = selectedAPNServer.urlRequest(
                 authenticationToken: authenticationToken,
                 bundleID: bundleID,

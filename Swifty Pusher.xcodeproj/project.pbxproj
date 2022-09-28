@@ -11,6 +11,7 @@
 		3E37C4BB27FE221200253CA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E37C4BA27FE221200253CA4 /* Preview Assets.xcassets */; };
 		3E37C4C627FE221200253CA4 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4C527FE221200253CA4 /* ViewModelTests.swift */; };
 		3E37C4D027FE221200253CA4 /* Swifty_PusherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37C4CF27FE221200253CA4 /* Swifty_PusherUITests.swift */; };
+		3E957AE028E4C83E004B1BC9 /* JSONWebTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E957ADF28E4C83E004B1BC9 /* JSONWebTokenTests.swift */; };
 		3EA4720427FF5187007E9E7B /* OpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4720327FF5187007E9E7B /* OpenPanel.swift */; };
 		3EA4720627FF5330007E9E7B /* MockOpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4720527FF5330007E9E7B /* MockOpenPanel.swift */; };
 		3EA4720827FF578A007E9E7B /* test.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4720727FF578A007E9E7B /* test.p8 */; };
@@ -53,6 +54,7 @@
 		3E37C4C527FE221200253CA4 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		3E37C4CB27FE221200253CA4 /* Swifty PusherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swifty PusherUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E37C4CF27FE221200253CA4 /* Swifty_PusherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty_PusherUITests.swift; sourceTree = "<group>"; };
+		3E957ADF28E4C83E004B1BC9 /* JSONWebTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONWebTokenTests.swift; sourceTree = "<group>"; };
 		3EA4720327FF5187007E9E7B /* OpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPanel.swift; sourceTree = "<group>"; };
 		3EA4720527FF5330007E9E7B /* MockOpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOpenPanel.swift; sourceTree = "<group>"; };
 		3EA4720727FF578A007E9E7B /* test.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.p8; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				3EA4720727FF578A007E9E7B /* test.p8 */,
 				3E37C4C527FE221200253CA4 /* ViewModelTests.swift */,
 				3EA4720527FF5330007E9E7B /* MockOpenPanel.swift */,
+				3E957ADF28E4C83E004B1BC9 /* JSONWebTokenTests.swift */,
 			);
 			path = "Swifty PusherTests";
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			files = (
 				3EA4720627FF5330007E9E7B /* MockOpenPanel.swift in Sources */,
 				3E37C4C627FE221200253CA4 /* ViewModelTests.swift in Sources */,
+				3E957AE028E4C83E004B1BC9 /* JSONWebTokenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
