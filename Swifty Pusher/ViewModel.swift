@@ -145,6 +145,8 @@ final class ViewModel: ObservableObject {
     func push() {
         guard let p8Payload = p8Payload else { return }
         
+        notificationIndicatorColor = .yellow
+        
         do {
             let jsonWebToken = try JSONWebToken(keyID: keyID, teamID: teamID, issueDate: Date(), p8Payload: p8Payload)
             let authenticationToken = jsonWebToken.token

@@ -5,8 +5,10 @@
 //  Created by QIU DU on 7/4/22.
 //
 
-import XCTest
+import Combine
+import SwiftUI
 import UniformTypeIdentifiers
+import XCTest
 
 import OHHTTPStubs
 import OHHTTPStubsSwift
@@ -19,6 +21,7 @@ final class ViewModelTests: XCTestCase {
     private let session = URLSession.shared
     private let userDefaults = UserDefaults(suiteName: #file)!
     private let dispatchQueue = DispatchQueue.main
+    private var cancellable: AnyCancellable?
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -172,6 +175,82 @@ final class ViewModelTests: XCTestCase {
         viewModel.loadKey()
         viewModel.push()
         waitForExpectations(timeout: 0.1)
+        
+        addTeardownBlock {
+            OHHTTPStubs.HTTPStubs.removeStub(stub)
+        }
+    }
+    
+    func testNotificationIndicatorColor_givenPushNotificationSuccess() throws {
+        let requestExpectation = self.expectation(description: "request")
+        let stub = stub(condition: isHost("api.sandbox.push.apple.com")) { request in
+            requestExpectation.fulfill()
+            return HTTPStubsResponse(
+                data: "{\"key\" : \"value\"}".data(using: .utf8)!,
+                statusCode: 200,
+                headers: ["Content-Type":"application/json"])
+        }
+        
+        panel.url = URL(fileURLWithPath: Bundle(for: type(of: self)).path(forResource: "test", ofType: "p8")!)
+        panel.stubModalResponse = .OK
+        let viewModel = makeViewModel()
+        defer { _ = viewModel }
+        
+        let receivedColorExpectation = self.expectation(description: "received color")
+        receivedColorExpectation.expectedFulfillmentCount = 3
+        var receivedColor = [Color]()
+        cancellable = viewModel.$notificationIndicatorColor
+            .sink { color in
+                receivedColorExpectation.fulfill()
+                receivedColor.append(color)
+            }
+        
+        viewModel.bundleID = "test_bundleID"
+        viewModel.deviceToken = "test_deviceToken"
+        viewModel.loadKey()
+        viewModel.push()
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(receivedColor, [.gray, .yellow, .green])
+        
+        addTeardownBlock {
+            OHHTTPStubs.HTTPStubs.removeStub(stub)
+        }
+    }
+    
+    func testNotificationIndicatorColor_givenPushNotificationFailed() throws {
+        let requestExpectation = self.expectation(description: "request")
+        let stub = stub(condition: isHost("api.sandbox.push.apple.com")) { request in
+            requestExpectation.fulfill()
+            return HTTPStubsResponse(
+                data: "{\"key\" : \"value\"}".data(using: .utf8)!,
+                statusCode: 429,
+                headers: ["Content-Type":"application/json"])
+        }
+        
+        panel.url = URL(fileURLWithPath: Bundle(for: type(of: self)).path(forResource: "test", ofType: "p8")!)
+        panel.stubModalResponse = .OK
+        let viewModel = makeViewModel()
+        defer { _ = viewModel }
+        
+        let receivedColorExpectation = self.expectation(description: "received color")
+        receivedColorExpectation.expectedFulfillmentCount = 3
+        var receivedColor = [Color]()
+        cancellable = viewModel.$notificationIndicatorColor
+            .sink { color in
+                receivedColorExpectation.fulfill()
+                receivedColor.append(color)
+            }
+        
+        viewModel.bundleID = "test_bundleID"
+        viewModel.deviceToken = "test_deviceToken"
+        viewModel.loadKey()
+        viewModel.push()
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(receivedColor, [.gray, .yellow, .red])
         
         addTeardownBlock {
             OHHTTPStubs.HTTPStubs.removeStub(stub)
