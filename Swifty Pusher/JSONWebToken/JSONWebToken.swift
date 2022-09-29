@@ -29,22 +29,23 @@ struct JSONWebToken: Codable {
         
         let tokenKey = "\(keyID).\(teamID).tokenKey"
         
-        let isExpiried = newDate > (oldDate + 30*60)
-        if isExpiried {
-            claims = Claims(teamID: teamID, issueDate: newDate)
-            let digest = try Self.digest(header: header, claims: claims)
-            let ellipticCurveKey = try EllipticCurveKey(p8Payload).key
-            let signature = try ellipticCurveKey.es256Sign(digest: digest)
-            token = [digest, signature].joined(separator: ".")
-            userDefaults.set(newDate, forKey: requestedDateKey)
-            userDefaults.set(token, forKey: tokenKey)
-        } else {
+        let isExpired = newDate > (oldDate + 30*60)
+        guard isExpired else {
             claims = Claims(teamID: teamID, issueDate: oldDate)
             guard let token = userDefaults.string(forKey: tokenKey) else {
                 throw JSONWebTokenError.invalidToken
             }
             self.token = token
+            return
         }
+        
+        claims = Claims(teamID: teamID, issueDate: newDate)
+        let digest = try Self.digest(header: header, claims: claims)
+        let ellipticCurveKey = try EllipticCurveKey(p8Payload).key
+        let signature = try ellipticCurveKey.es256Sign(digest: digest)
+        token = [digest, signature].joined(separator: ".")
+        userDefaults.set(newDate, forKey: requestedDateKey)
+        userDefaults.set(token, forKey: tokenKey)
     }
 }
 
