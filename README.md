@@ -4,6 +4,11 @@ This is a GUI tool helps to test Apple Push Notifications to your physical devic
 
 *Donate or Buy me a Coffee would be much appreciate! 😄*
 
+Please rate this app at app store:
+https://apps.apple.com/sg/app/swifty-pusher/id1618221326?mt=12
+
+It also lovely if you could share this app to other developers :)
+
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2NYP5MX3HAFYQ)
 
 <img width="256" alt="Screenshot 2022-04-08 at 9 17 46 PM" src="https://user-images.githubusercontent.com/9628305/162445205-f2923c05-5dad-4634-a594-07d48b7e1950.png">
